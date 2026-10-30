@@ -65,12 +65,21 @@ fun ProductListItem(product: ProductUi, onClick: () -> Unit, modifier: Modifier 
         elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
     ) {
         Column(Modifier.padding(16.dp)) {
-            Text(product.title, style = MaterialTheme.typography.titleMedium)
-            Text(product.brand, style = MaterialTheme.typography.bodyMedium)
+            Text(
+                product.title,
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                product.brand,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.secondary
+            )
             Spacer(Modifier.height(8.dp))
             Text(
                 "${product.price} € • ★ ${product.rating}",
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.primary
             )
             Spacer(Modifier.height(8.dp))
             Button(onClick = onClick) {
