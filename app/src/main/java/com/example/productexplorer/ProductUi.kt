@@ -25,3 +25,17 @@ fun sampleProduct() = ProductUi(
     warrantyInformation = "Garantie constructeur : 2 ans",
     shippingInformation = "Livraison estimée : 3 à 5 jours ouvrés"
 )
+
+fun sampleProductOutOfStock() = ProductUi(
+    title = "Casque Audio Pulse",
+    brand = "SoundPeak",
+    category = "Audio",
+    description = "Un casque confortable conçu pour écouter de la musique, " +
+        "suivre des cours en ligne et travailler dans de bonnes conditions.",
+    price = 129.99,
+    discountPercentage = 8.0,
+    rating = 4.2,
+    stock = 0,
+    warrantyInformation = "Garantie constructeur : 1 an",
+    shippingInformation = "Produit temporairement indisponible"
+)

@@ -135,3 +135,11 @@ fun ProductDetailScreenPreview() {
         ProductDetailScreen(sampleProduct(), onAddToCartClick = {})
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun ProductDetailScreenOutOfStockPreview() {
+    ProductExplorerTheme {
+        ProductDetailScreen(sampleProductOutOfStock(), onAddToCartClick = {})
+    }
+}
