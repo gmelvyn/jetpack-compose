@@ -37,3 +37,22 @@ fun ProductCatalogScreen(
         }
     }
 }
+
+@Composable
+fun ProductListItem(product: ProductUi, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    Card(modifier = modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp)) {
+            Text(product.title, style = MaterialTheme.typography.titleMedium)
+            Text(product.brand, style = MaterialTheme.typography.bodyMedium)
+            Spacer(Modifier.height(8.dp))
+            Text(
+                "${product.price} € • ★ ${product.rating}",
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Spacer(Modifier.height(8.dp))
+            Button(onClick = onClick) {
+                Text("Voir le produit")
+            }
+        }
+    }
+}
