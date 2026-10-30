@@ -33,7 +33,7 @@ fun ProductDetailScreen(
         modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)
     ) {
         ProductHeader(product.title, product.brand, product.category)
-        Text("${product.price} €")
+        ProductPriceCard(product.price, product.discountPercentage, Modifier.fillMaxWidth().padding(top = 16.dp))
         Text(product.description)
         Button(onClick = onAddToCartClick) { Text("Ajouter au panier") }
     }
@@ -45,6 +45,16 @@ fun ProductHeader(title: String, brand: String, category: String, modifier: Modi
         Text(title, style = MaterialTheme.typography.headlineSmall)
         Text(brand, style = MaterialTheme.typography.titleMedium)
         Text(category, style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+fun ProductPriceCard(price: Double, discountPercentage: Double, modifier: Modifier = Modifier) {
+    Card(modifier) {
+        Column(Modifier.padding(16.dp)) {
+            Text("$price €", style = MaterialTheme.typography.headlineSmall)
+            Text("Remise : $discountPercentage %", style = MaterialTheme.typography.bodyMedium)
+        }
     }
 }
 
