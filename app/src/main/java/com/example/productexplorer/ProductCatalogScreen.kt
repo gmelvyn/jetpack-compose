@@ -77,3 +77,11 @@ fun CategoryRow(categories: List<String>, modifier: Modifier = Modifier) {
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun ProductCatalogScreenPreview() {
+    ProductExplorerTheme {
+        ProductCatalogScreen(products = sampleProducts(), onProductClick = {})
+    }
+}
