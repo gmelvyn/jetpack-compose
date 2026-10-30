@@ -98,10 +98,10 @@ fun CategoryRow(categories: List<String>, modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Catalogue - Light Theme")
 @Composable
-fun ProductCatalogScreenPreview() {
-    ProductExplorerTheme {
+fun ProductCatalogScreenLightPreview() {
+    ProductExplorerTheme(darkTheme = false) {
         ProductCatalogScreen(products = sampleProducts(), onProductClick = {})
     }
 }
