@@ -36,6 +36,12 @@ fun ProductCatalogScreen(
             Text("Catalogue produits", style = MaterialTheme.typography.headlineMedium)
         }
         item {
+            Text(
+                "Explorez une sélection de produits disponibles localement.",
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+        item {
             CategoryRow(categories = sampleCategories())
         }
         items(items = products, key = { product -> product.id }) { product ->
