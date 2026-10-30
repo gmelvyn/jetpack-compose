@@ -59,3 +59,12 @@ fun ProductListItem(product: ProductUi, onClick: () -> Unit, modifier: Modifier 
         }
     }
 }
+
+@Composable
+fun CategoryRow(categories: List<String>, modifier: Modifier = Modifier) {
+    LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        items(categories) { category ->
+            CategoryChip(label = category)
+        }
+    }
+}

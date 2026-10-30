@@ -75,3 +75,5 @@ fun sampleProducts(): List<ProductUi> = listOf(
         shippingInformation = "Livraison estimée : 3 jours ouvrés"
     )
 )
+
+fun sampleCategories(): List<String> = listOf("Smartphones", "Audio", "Wearables", "Maison")
