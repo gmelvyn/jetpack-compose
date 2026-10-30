@@ -32,6 +32,7 @@ fun ProductDetailScreen(
     Column(
         modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)
     ) {
+        ProductImage(product.title, Modifier.fillMaxWidth().padding(bottom = 16.dp))
         ProductHeader(product.title, product.brand, product.category)
         ProductPriceCard(product.price, product.discountPercentage, Modifier.fillMaxWidth().padding(top = 16.dp))
         Text(product.description)
@@ -56,6 +57,15 @@ fun ProductPriceCard(price: Double, discountPercentage: Double, modifier: Modifi
             Text("Remise : $discountPercentage %", style = MaterialTheme.typography.bodyMedium)
         }
     }
+}
+
+@Composable
+fun ProductImage(productTitle: String, modifier: Modifier = Modifier) {
+    Image(
+        painter = painterResource(android.R.drawable.ic_menu_gallery),
+        contentDescription = "Image du produit $productTitle",
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
