@@ -31,6 +31,8 @@ fun ProductHomeScreen(
         modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)
     ) {
         HomeHeader()
+        Spacer(Modifier.height(24.dp))
+        SearchPreviewBar()
     }
 }
 
@@ -39,6 +41,21 @@ fun HomeHeader(modifier: Modifier = Modifier) {
     Column(modifier) {
         Text("Product Explorer", style = MaterialTheme.typography.headlineMedium)
         Text("Découvrez les produits du moment", style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+fun SearchPreviewBar(modifier: Modifier = Modifier) {
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.medium,
+        tonalElevation = 2.dp
+    ) {
+        Text(
+            "Rechercher un produit...",
+            modifier = Modifier.padding(16.dp),
+            style = MaterialTheme.typography.bodyMedium
+        )
     }
 }
 
