@@ -32,15 +32,21 @@ fun ProductDetailScreen(
     Column(
         modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)
     ) {
-        Text(product.title)
-        Text(product.brand)
-        Text(product.category)
+        ProductHeader(product.title, product.brand, product.category)
         Text("${product.price} €")
         Text(product.description)
         Button(onClick = onAddToCartClick) { Text("Ajouter au panier") }
     }
 }
 
+@Composable
+fun ProductHeader(title: String, brand: String, category: String, modifier: Modifier = Modifier) {
+    Column(modifier) {
+        Text(title, style = MaterialTheme.typography.headlineSmall)
+        Text(brand, style = MaterialTheme.typography.titleMedium)
+        Text(category, style = MaterialTheme.typography.bodyMedium)
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
