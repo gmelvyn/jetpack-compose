@@ -34,7 +34,11 @@ fun ProductCatalogScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item {
-            Text("Catalogue produits", style = MaterialTheme.typography.headlineMedium)
+            Text(
+                "Catalogue produits",
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
         }
         item {
             Text(
