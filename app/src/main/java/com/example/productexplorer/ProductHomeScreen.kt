@@ -35,6 +35,8 @@ fun ProductHomeScreen(
         SearchPreviewBar()
         Spacer(Modifier.height(24.dp))
         FeaturedProductSection(featuredProduct, onClick = onFeaturedProductClick)
+        Spacer(Modifier.height(24.dp))
+        CategoriesSection()
     }
 }
 
@@ -89,6 +91,32 @@ fun ProductQuickInfoRow(price: Double, rating: Double, stock: Int, modifier: Mod
         Text("$price €", modifier = Modifier.weight(1f))
         Text("★ $rating", modifier = Modifier.weight(1f))
         Text("$stock en stock", modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+fun CategoryChip(label: String, modifier: Modifier = Modifier) {
+    Surface(modifier = modifier, shape = MaterialTheme.shapes.medium, tonalElevation = 2.dp) {
+        Text(
+            label,
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+            style = MaterialTheme.typography.bodyMedium
+        )
+    }
+}
+
+@Composable
+fun CategoriesSection(modifier: Modifier = Modifier) {
+    Column(modifier) {
+        Text("Catégories", style = MaterialTheme.typography.titleMedium)
+        Spacer(Modifier.height(8.dp))
+        Row {
+            CategoryChip("Smartphones")
+            Spacer(Modifier.weight(1f))
+            CategoryChip("Audio")
+            Spacer(Modifier.weight(1f))
+            CategoryChip("Maison")
+        }
     }
 }
 
