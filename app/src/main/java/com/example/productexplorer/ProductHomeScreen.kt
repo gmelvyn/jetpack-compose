@@ -37,6 +37,8 @@ fun ProductHomeScreen(
         FeaturedProductSection(featuredProduct, onClick = onFeaturedProductClick)
         Spacer(Modifier.height(24.dp))
         CategoriesSection()
+        Spacer(Modifier.height(24.dp))
+        DailyOfferBox()
     }
 }
 
@@ -116,6 +118,40 @@ fun CategoriesSection(modifier: Modifier = Modifier) {
             CategoryChip("Audio")
             Spacer(Modifier.weight(1f))
             CategoryChip("Maison")
+        }
+    }
+}
+
+@Composable
+fun DailyOfferBox(modifier: Modifier = Modifier) {
+    Box(modifier.fillMaxWidth()) {
+        Surface(
+            modifier = Modifier.fillMaxWidth(),
+            shape = MaterialTheme.shapes.large,
+            tonalElevation = 2.dp
+        ) {
+            Column(Modifier.padding(16.dp)) {
+                Text(
+                    "Offre du jour",
+                    modifier = Modifier.padding(end = 88.dp),
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    "Jusqu’à -20 % sur une sélection de produits",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        }
+        Surface(
+            modifier = Modifier.align(Alignment.TopEnd).padding(8.dp),
+            shape = MaterialTheme.shapes.small,
+            tonalElevation = 6.dp
+        ) {
+            Text(
+                "Nouveau",
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                style = MaterialTheme.typography.labelMedium
+            )
         }
     }
 }
