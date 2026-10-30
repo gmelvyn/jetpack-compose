@@ -33,7 +33,7 @@ fun ProductExplorerTheme(
     content: @Composable () -> Unit
 ) {
     MaterialTheme(
-        colorScheme = if (darkTheme) darkColorScheme() else lightColorScheme(),
+        colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme,
         content = content
     )
 }
