@@ -35,6 +35,7 @@ fun ProductDetailScreen(
         ProductImage(product.title, Modifier.fillMaxWidth().padding(bottom = 16.dp))
         ProductHeader(product.title, product.brand, product.category)
         ProductPriceCard(product.price, product.discountPercentage, Modifier.fillMaxWidth().padding(top = 16.dp))
+        ProductRating(product.rating, Modifier.padding(top = 16.dp))
         Text(product.description)
         Button(onClick = onAddToCartClick) { Text("Ajouter au panier") }
     }
@@ -66,6 +67,14 @@ fun ProductImage(productTitle: String, modifier: Modifier = Modifier) {
         contentDescription = "Image du produit $productTitle",
         modifier = modifier
     )
+}
+
+@Composable
+fun ProductRating(rating: Double, modifier: Modifier = Modifier) {
+    Row(modifier) {
+        Icon(Icons.Default.Star, contentDescription = "Note du produit")
+        Text("$rating / 5", modifier = Modifier.padding(start = 8.dp))
+    }
 }
 
 @Preview(showBackground = true)
