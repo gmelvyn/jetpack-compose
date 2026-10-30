@@ -35,6 +35,9 @@ fun ProductCatalogScreen(
         item {
             Text("Catalogue produits", style = MaterialTheme.typography.headlineMedium)
         }
+        item {
+            CategoryRow(categories = sampleCategories())
+        }
         items(items = products, key = { product -> product.id }) { product ->
             ProductListItem(product = product, onClick = { onProductClick(product) })
         }
