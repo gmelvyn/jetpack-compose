@@ -27,7 +27,13 @@ fun ProductCatalogScreen(
     onProductClick: (ProductUi) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier.fillMaxSize().padding(16.dp)) {
-        Text("Catalogue produits", style = MaterialTheme.typography.headlineMedium)
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        item {
+            Text("Catalogue produits", style = MaterialTheme.typography.headlineMedium)
+        }
     }
 }
