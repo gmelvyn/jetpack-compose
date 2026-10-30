@@ -36,6 +36,7 @@ fun ProductDetailScreen(
         ProductHeader(product.title, product.brand, product.category)
         ProductPriceCard(product.price, product.discountPercentage, Modifier.fillMaxWidth().padding(top = 16.dp))
         ProductRating(product.rating, Modifier.padding(top = 16.dp))
+        ProductAvailabilityCard(product.stock, product.shippingInformation, Modifier.fillMaxWidth().padding(top = 16.dp))
         Text(product.description)
         Button(onClick = onAddToCartClick) { Text("Ajouter au panier") }
     }
@@ -74,6 +75,17 @@ fun ProductRating(rating: Double, modifier: Modifier = Modifier) {
     Row(modifier) {
         Icon(Icons.Default.Star, contentDescription = "Note du produit")
         Text("$rating / 5", modifier = Modifier.padding(start = 8.dp))
+    }
+}
+
+@Composable
+fun ProductAvailabilityCard(stock: Int, shippingInformation: String, modifier: Modifier = Modifier) {
+    Card(modifier) {
+        Column(Modifier.padding(16.dp)) {
+            Text("Disponibilité", style = MaterialTheme.typography.titleMedium)
+            Text("Stock : $stock unités", style = MaterialTheme.typography.bodyMedium)
+            Text(shippingInformation, style = MaterialTheme.typography.bodyMedium)
+        }
     }
 }
 
