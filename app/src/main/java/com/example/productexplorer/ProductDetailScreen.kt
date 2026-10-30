@@ -34,12 +34,30 @@ fun ProductDetailScreen(
     ) {
         ProductImage(product.title, Modifier.fillMaxWidth().padding(bottom = 16.dp))
         ProductHeader(product.title, product.brand, product.category)
-        ProductPriceCard(product.price, product.discountPercentage, Modifier.fillMaxWidth().padding(top = 16.dp))
+        ProductPriceCard(
+            product.price, product.discountPercentage,
+            Modifier.fillMaxWidth().padding(top = 16.dp)
+        )
         ProductRating(product.rating, Modifier.padding(top = 16.dp))
-        ProductAvailabilityCard(product.stock, product.shippingInformation, Modifier.fillMaxWidth().padding(top = 16.dp))
+        ProductAvailabilityCard(
+            product.stock, product.shippingInformation,
+            Modifier.fillMaxWidth().padding(top = 16.dp)
+        )
         ProductDescription(product.description, Modifier.padding(top = 16.dp))
-        Button(onClick = onAddToCartClick) { Text("Ajouter au panier") }
+        ProductWarrantyField(
+            product.warrantyInformation, Modifier.fillMaxWidth().padding(top = 16.dp)
+        )
+        AddToCartButton(onAddToCartClick, Modifier.fillMaxWidth().padding(top = 16.dp))
     }
+}
+
+@Composable
+fun ProductImage(productTitle: String, modifier: Modifier = Modifier) {
+    Image(
+        painter = painterResource(android.R.drawable.ic_menu_gallery),
+        contentDescription = "Image du produit $productTitle",
+        modifier = modifier
+    )
 }
 
 @Composable
@@ -59,15 +77,6 @@ fun ProductPriceCard(price: Double, discountPercentage: Double, modifier: Modifi
             Text("Remise : $discountPercentage %", style = MaterialTheme.typography.bodyMedium)
         }
     }
-}
-
-@Composable
-fun ProductImage(productTitle: String, modifier: Modifier = Modifier) {
-    Image(
-        painter = painterResource(android.R.drawable.ic_menu_gallery),
-        contentDescription = "Image du produit $productTitle",
-        modifier = modifier
-    )
 }
 
 @Composable
@@ -98,6 +107,24 @@ fun ProductDescription(description: String, modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.padding(top = 4.dp)
         )
+    }
+}
+
+@Composable
+fun ProductWarrantyField(warrantyInformation: String, modifier: Modifier = Modifier) {
+    OutlinedTextField(
+        value = warrantyInformation,
+        onValueChange = {},
+        readOnly = true,
+        label = { Text("Garantie") },
+        modifier = modifier
+    )
+}
+
+@Composable
+fun AddToCartButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
+    Button(onClick = onClick, modifier = modifier) {
+        Text("Ajouter au panier")
     }
 }
 
