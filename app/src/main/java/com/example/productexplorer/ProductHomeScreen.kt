@@ -74,10 +74,21 @@ fun FeaturedProductSection(product: ProductUi, onClick: () -> Unit, modifier: Mo
             Text(product.title, style = MaterialTheme.typography.headlineSmall)
             Text(product.brand, style = MaterialTheme.typography.bodyMedium)
             Spacer(Modifier.height(12.dp))
+            ProductQuickInfoRow(product.price, product.rating, product.stock)
+            Spacer(Modifier.height(12.dp))
             Button(onClick = onClick) {
                 Text("Voir le produit")
             }
         }
+    }
+}
+
+@Composable
+fun ProductQuickInfoRow(price: Double, rating: Double, stock: Int, modifier: Modifier = Modifier) {
+    Row(modifier.fillMaxWidth()) {
+        Text("$price €", modifier = Modifier.weight(1f))
+        Text("★ $rating", modifier = Modifier.weight(1f))
+        Text("$stock en stock", modifier = Modifier.weight(1f))
     }
 }
 
