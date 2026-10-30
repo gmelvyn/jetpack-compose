@@ -102,7 +102,7 @@ fun CategoryChip(label: String, modifier: Modifier = Modifier) {
         modifier = modifier,
         shape = MaterialTheme.shapes.extraLarge,
         color = MaterialTheme.colorScheme.secondary,
-        contentColor = MaterialTheme.colorScheme.onPrimary
+        contentColor = MaterialTheme.colorScheme.onSecondary
     ) {
         Text(
             label,
