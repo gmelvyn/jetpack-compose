@@ -44,6 +44,7 @@ fun ProductExplorerTheme(
 ) {
     MaterialTheme(
         colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme,
+        typography = ProductTypography,
         shapes = ProductShapes,
         content = content
     )
